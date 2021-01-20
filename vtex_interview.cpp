@@ -68,7 +68,6 @@ int sol() {
 	return num;
 }
 
-
 int main() {
 	cout << sol() << endl;
 	return 0;
