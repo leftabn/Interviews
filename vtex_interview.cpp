@@ -53,16 +53,16 @@ int sol() {
 	numToArray(arr, num, numLength);
 	int last = arr[numLength];
 	int i, j;
-	for (i = numLength-1; i > 0; i--) {
+	for (i = numLength-1; i >= 0; i--) {
 		if (last > arr[i]) break;
 		last = arr[i];
 	}
-	if (i > 0) {
-		for (j = numLength; j > 0; j--) {
+	if (i >= 0) {
+		for (j = numLength; j >= 0; j--) {
 			if (arr[j] > arr[i]) break;
 		}
 		_swap(arr, i, j);
-		_sort(arr, i, j);
+		_sort(arr, i+1, numLength);
 	}
 	num = arrayToNum(arr, numLength);
 	return num;
