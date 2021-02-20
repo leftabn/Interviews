@@ -42,4 +42,9 @@ def sol(inputList, maximumNumbers):
   return max((sumFront+sumBack), max(sumFront, sumBack))
 
 
-print(sol([5, -2, 3, 1, 2], 3))
+def main():
+  print(sol([5, -2, 3, 1, 2], 3))
+
+
+if (__name__ == "__main__"):
+  main()
