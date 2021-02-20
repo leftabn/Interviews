@@ -16,16 +16,16 @@ typedef struct btNode
   int height;
 } Node;
 
-// typedef struct AVL
-// {
-//   Node *root;
-// } AVL;
+typedef struct AVL
+{
+  Node *root;
+} AVL;
 
-// void start_avl(AVL **avl)
-// {
-//   avl = (AVL **)malloc(sizeof(AVL*));
-//   (*avl)->root = NULL;
-// }
+void start_avl(AVL **avl)
+{
+  *avl = (AVL *)malloc(sizeof(AVL));
+  (*avl)->root = NULL;
+}
 
 int getHeight(Node *n)
 {
@@ -127,24 +127,19 @@ void preOrderPrint(Node *n)
 
 int main()
 {
-  // AVL *avl = NULL;
-  // start_avl(&avl);
-  Node *root = NULL;
-  // int i;
-  // for (i = 0; i < 10000000; i++);
-  // cout << avl << "\n";
-  // cout << avl->root << "\n";
-  root = insert(root, 10);
-  root = insert(root, 20);
-  root = insert(root, 50);
-  root = insert(root, 400);
-  root = insert(root, 110);
-  root = insert(root, 125);
-  root = insert(root, 200);
-  root = insert(root, 237);
-  root = insert(root, 80);
+  AVL *avl = NULL;
+  start_avl(&avl);
+  avl->root = insert(avl->root, 10);
+  avl->root = insert(avl->root, 20);
+  avl->root = insert(avl->root, 50);
+  avl->root = insert(avl->root, 400);
+  avl->root = insert(avl->root, 110);
+  avl->root = insert(avl->root, 125);
+  avl->root = insert(avl->root, 200);
+  avl->root = insert(avl->root, 237);
+  avl->root = insert(avl->root, 80);
 
-  preOrderPrint(root);
+  preOrderPrint(avl->root);
   cout << "\n";
 
   return 0;
