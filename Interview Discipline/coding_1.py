@@ -39,12 +39,7 @@ def sol(inputList, maximumNumbers):
       if (tmp == 0):
         break
 
-  if ((sumFront+sumBack > sumFront) and (sumFront+sumBack > sumBack)):
-    return (sumFront+sumBack)
-  elif (sumBack > (sumFront+sumBack) and (sumBack > sumFront)):
-    return sumBack
-
-  return sumFront
+  return max((sumFront+sumBack), max(sumFront, sumBack))
 
 
 print(sol([5, -2, 3, 1, 2], 3))
