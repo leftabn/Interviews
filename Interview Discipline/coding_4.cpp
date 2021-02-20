@@ -28,7 +28,6 @@ void init_stack()
   {
     top[i] = -1; // -1 represents there's no top value
   }
-  
   return;
 }
 
