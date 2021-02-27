@@ -38,7 +38,6 @@ int sol()
   map<int, int>::iterator it;
   for (it = uniqueYears.begin(); it != uniqueYears.end(); it++)
   {
-    cout << it->first << ": " << it->second << "\n";
     auxCount += it->second;
     if (auxCount > count)
     {
