@@ -4,8 +4,6 @@
  * AVL
 */
 
-#define test (std::cout << "test\n")
-
 using namespace std;
 
 typedef struct btNode
@@ -62,7 +60,6 @@ Node *L_Rotate(Node *n)
 
   n->height = max(getHeight(n->l), getHeight(n->r) + 1);
   tmp->height = max(getHeight(tmp->l), getHeight(tmp->r) + 1);
-  
 
   return tmp;
 }
@@ -100,7 +97,7 @@ Node *insert(Node *n, int v)
     return R_Rotate(n);
   if (balance < -1 && v > n->r->v)
     return L_Rotate(n);
-  
+
   if (balance > 1 && v > n->l->v)
   {
     n->l = L_Rotate(n->l);

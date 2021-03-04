@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 /**
- * Heap
+ * Verify if an array has the Max Heap structure
 */
 
 

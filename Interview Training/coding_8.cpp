@@ -1,5 +1,8 @@
 #include <bits/stdc++.h>
-
+/**
+ * Check Permutation: Given two strings,
+ * write a method to decide if one is a permutation of the other
+*/
 using namespace std;
 
 int sol(string s1, string s2)
@@ -22,7 +25,6 @@ int main()
   string a, b;
   cin >> a;
   cin >> b;
-
   cout << sol(a,b) << "\n";
   return 0;
 }

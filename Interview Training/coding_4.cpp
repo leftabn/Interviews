@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 /**
- * Pilha
+ * 3 stack inside of an array
 */
 
 const unsigned int MAX_SIZE = 10;

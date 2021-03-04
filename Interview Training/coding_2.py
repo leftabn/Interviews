@@ -1,6 +1,6 @@
 def sol(A, B):
   '''
-   Vector
+   Find intersection between two arrays O(N);
   '''
   lenA = len(A)
   lenB = len(B)
