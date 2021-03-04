@@ -12,7 +12,6 @@ using namespace std;
 int checkOdd(string s1, int *lettersMap)
 {
   int oneOdd = 0;
-  unordered_map<char, int>::iterator it;
   for (char &i : s1)
   {
     if (lettersMap[i - 'a'] & 1)
