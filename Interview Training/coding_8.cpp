@@ -11,11 +11,12 @@ int sol(string s1, string s2)
     return 0;
   int lettersCheckArr[27] = {0};
   for (char &i : s1)
-    lettersCheckArr[i - 'a'] = 1;
+    lettersCheckArr[i - 'a']++;
   for (char &i : s2)
   {
     if (!lettersCheckArr[i - 'a'])
       return 0;
+    lettersCheckArr[i - 'a']--;
   }
   return 1;
 }
