@@ -1,10 +1,11 @@
-def sol(inputList, maximumNumbers):
-  '''
-   Given an integer array A of size N.
-   You can pick B elements from either left or right end of the array A to get maximum sum.
-   Find and return this maximum possible sum.
-  '''
+'''
+  Given an integer array A of size N.
+  You can pick B elements from either left or right end of the array A to get maximum sum.
+  Find and return this maximum possible sum.
+'''
 
+
+def sol(inputList, maximumNumbers):
   if (maximumNumbers == 1):
     return max(inputList)
 

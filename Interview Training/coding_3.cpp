@@ -1,8 +1,8 @@
-#include <bits/stdc++.h>
-
 /**
  * Bitmap
 */
+
+#include <bits/stdc++.h>
 
 using namespace std;
 

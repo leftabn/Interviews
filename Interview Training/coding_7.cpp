@@ -1,9 +1,9 @@
-#include <bits/stdc++.h>
-
 /**
  * Given 1 list cointaing birth year and death year of people, 
  * find the year with the most number of people alive
 */
+
+#include <bits/stdc++.h>
 
 using namespace std;
 

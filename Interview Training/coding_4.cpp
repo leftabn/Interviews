@@ -1,8 +1,8 @@
-#include <bits/stdc++.h>
-
 /**
  * 3 stack inside of an array
 */
+
+#include <bits/stdc++.h>
 
 const unsigned int MAX_SIZE = 10;
 const unsigned int STACK_QTD = 3;

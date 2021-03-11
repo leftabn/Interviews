@@ -1,8 +1,10 @@
-#include <bits/stdc++.h>
 /**
  * Check Permutation: Given two strings,
  * write a method to decide if one is a permutation of the other
 */
+
+#include <bits/stdc++.h>
+
 using namespace std;
 
 int sol(string s1, string s2)

@@ -1,7 +1,9 @@
+'''
+  Find intersection between two arrays O(N);
+'''
+
+
 def sol(A, B):
-  '''
-   Find intersection between two arrays O(N);
-  '''
   lenA = len(A)
   lenB = len(B)
 

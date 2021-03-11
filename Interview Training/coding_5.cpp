@@ -1,9 +1,8 @@
-#include <bits/stdc++.h>
-
 /**
  * Verify if an array has the Max Heap structure
 */
 
+#include <bits/stdc++.h>
 
 using namespace std;
 
