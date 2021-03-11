@@ -150,7 +150,6 @@ void arrPartition(LinkedList *list, int x)
   }
   greater->setNext(NULL);
   lesser->setNext(greaterHead);
-  list->setHead(lesserHead);
 }
 
 int main()
