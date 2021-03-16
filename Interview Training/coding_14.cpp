@@ -129,9 +129,7 @@ int sol(LinkedList list, int kth)
   int _len = len(list);
   int i;
   for (i = 0; i < (_len-kth); i++)
-  {
     aux = aux->getNext();
-  }
   return aux->getValue();
 }
 
