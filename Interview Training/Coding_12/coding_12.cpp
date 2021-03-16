@@ -111,10 +111,10 @@ private:
   Node *lastElement;
 };
 
-void arrPartition(LinkedList *list, int x)
+void arrPartition(LinkedList list, int x)
 {
   LinkedList *newList = new LinkedList();
-  Node *it = list->getHead();
+  Node *it = list.getHead();
   while (it != NULL)
   {
     if (it->getValue() < x)
@@ -123,7 +123,7 @@ void arrPartition(LinkedList *list, int x)
     }
     it = it->getNext();
   }
-  it = list->getHead();
+  it = list.getHead();
   while (it != NULL)
   {
     if (it->getValue() >= x)
@@ -132,8 +132,8 @@ void arrPartition(LinkedList *list, int x)
     }
     it = it->getNext();
   }
-  list->clear();
-  list->setHead(newList->getHead());
+  list.clear();
+  list.setHead(newList->getHead());
 }
 
 int main()
@@ -143,7 +143,7 @@ int main()
   LinkedList list;
   list.fill(arr, n);
   list.printList();
-  arrPartition(&list, 5);
+  arrPartition(list, 5);
   list.printList();
   return 0;
 }

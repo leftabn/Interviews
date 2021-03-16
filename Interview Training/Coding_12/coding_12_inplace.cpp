@@ -113,9 +113,9 @@ private:
   Node *lastElement;
 };
 
-void arrPartition(LinkedList *list, int x)
+void arrPartition(LinkedList list, int x)
 {
-  Node *it = list->getHead();
+  Node *it = list.getHead();
   Node *lesserHead = NULL;
   Node *greaterHead = NULL;
   Node *lesser = NULL;
@@ -159,7 +159,7 @@ int main()
   LinkedList list;
   list.fill(arr, n);
   list.printList();
-  arrPartition(&list, 5);
+  arrPartition(list, 5);
   list.printList();
   return 0;
 }

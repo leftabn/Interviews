@@ -113,9 +113,9 @@ private:
   Node *lastElement;
 };
 
-void removeDups(LinkedList *list)
+void removeDups(LinkedList list)
 {
-  Node *ptr1 = list->getHead();
+  Node *ptr1 = list.getHead();
 
   while (ptr1 != NULL)
   {
@@ -144,7 +144,7 @@ int main()
   LinkedList list;
   list.fill(arr, 8);
   list.printList();
-  removeDups(&list);
+  removeDups(list);
   list.printList();
   return 0;
 }
