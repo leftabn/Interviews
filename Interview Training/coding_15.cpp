@@ -121,6 +121,10 @@ public:
       push(new Node(arr[i]));
     }
   }
+  bool isEmpty()
+  {
+    return (top == NULL);
+  }
   void clear()
   {
     while (top != NULL)

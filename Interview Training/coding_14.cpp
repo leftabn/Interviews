@@ -91,6 +91,10 @@ public:
       delete tmp;
     }
   }
+  bool isEmpty()
+  {
+    return (head == NULL);
+  }
   void printList()
   {
     Node *it = head;
