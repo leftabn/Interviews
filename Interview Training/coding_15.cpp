@@ -134,7 +134,7 @@ public:
       delete tmp;
     }
   }
-  void printList()
+  void printStack()
   {
     Node *it = top;
     cout << "[";
