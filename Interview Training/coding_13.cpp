@@ -51,7 +51,7 @@ public:
   {
     head = NULL;
     lastElement = head;
-  };
+  }
   Node *getHead()
   {
     return head;
@@ -136,15 +136,14 @@ void removeDups(LinkedList list)
   return;
 }
 
-
-
 int main()
 {
   int arr[] = {5, 1, 1, 8, 9, 5, 7, 1};
-  LinkedList list;
+  LinkedList list = LinkedList();
   list.fill(arr, 8);
   list.printList();
   removeDups(list);
   list.printList();
+  list.clear();
   return 0;
 }

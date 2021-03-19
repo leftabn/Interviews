@@ -48,7 +48,7 @@ public:
   {
     head = NULL;
     lastElement = head;
-  };
+  }
   Node *getHead()
   {
     return head;
@@ -119,7 +119,6 @@ int len(LinkedList list)
     _len++;
     aux = aux->getNext();
   }
-    
   return _len;
 }
 
@@ -136,9 +135,10 @@ int sol(LinkedList list, int kth)
 int main()
 {
   int arr[] {1,2,3,4,5,6,7,8,9,10};
-  LinkedList list;
+  LinkedList list = LinkedList();
   list.fill(arr, 10);
   list.printList();
   cout << sol(list, 2) << endl;
+  list.clear();
   return 0;
 }
