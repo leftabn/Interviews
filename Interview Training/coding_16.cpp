@@ -151,37 +151,37 @@ private:
   Node *min;
 };
 
-void sortStacks(Stack *in, Stack *aux)
+void sortStacks(Stack &in, Stack &aux)
 {
-  while (!in->isEmpty())
+  while (!in.isEmpty())
   {
-    int tmp = in->getTop();
-    in->pop();
-    if (aux->isEmpty())
+    int tmp = in.getTop();
+    in.pop();
+    if (aux.isEmpty())
     {
-      aux->push(tmp);
+      aux.push(tmp);
     }
     else
     {
-      if (tmp > aux->getTop())
+      if (tmp > aux.getTop())
       {
-        aux->push(tmp);
+        aux.push(tmp);
       }
       else
       {
-        while (!aux->isEmpty() && aux->getTop() > tmp)
+        while (!aux.isEmpty() && aux.getTop() > tmp)
         {
-          in->push(aux->getTop());
-          aux->pop();
+          in.push(aux.getTop());
+          aux.pop();
         }
-        aux->push(tmp);
+        aux.push(tmp);
       }
     }
   }
-  while (!aux->isEmpty())
+  while (!aux.isEmpty())
   {
-    in->push(aux->getTop());
-    aux->pop();
+    in.push(aux.getTop());
+    aux.pop();
   }
   return;
 }
@@ -193,7 +193,7 @@ int main()
   s1.fill(arr, 5);
   Stack s2 = Stack();
   s1.printStack();
-  sortStacks(&s1, &s2);
+  sortStacks(s1, s2);
   s1.printStack();
   s1.clear();
   s2.clear();
