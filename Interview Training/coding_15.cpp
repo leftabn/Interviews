@@ -106,12 +106,15 @@ public:
       }
     }
   }
-  Node* pop() {
-    if (min == top)
+  Node *pop()
+  {
+    Node *tmp = top;
+    top = top->getNext();
+    if (min == tmp)
     {
       min = min->getNext();
     }
-    return (top->getNext());
+    return (tmp);
   }
   void fill(int *arr, int n)
   {

@@ -1,46 +1,40 @@
 /**
  * AVL tree
-*/
+ */
 
 #include <bits/stdc++.h>
 
 using namespace std;
 
-typedef struct btNode
-{
+typedef struct btNode {
   int v;
   struct btNode *r;
   struct btNode *l;
   int height;
 } Node;
 
-typedef struct AVL
-{
+typedef struct AVL {
   Node *root;
 } AVL;
 
-void start_avl(AVL **avl)
-{
+void start_avl(AVL **avl) {
   *avl = (AVL *)malloc(sizeof(AVL));
   (*avl)->root = NULL;
 }
 
-int getHeight(Node *n)
-{
+int getHeight(Node *n) {
   if (n == NULL)
     return 0;
   return n->height;
 }
 
-int balanceFactor(Node *n)
-{
+int balanceFactor(Node *n) {
   if (n == NULL)
     return 0;
   return (getHeight(n->l) - getHeight(n->r));
 }
 
-Node *allocNode(int v)
-{
+Node *allocNode(int v) {
   Node *newNode = NULL;
   newNode = (Node *)malloc(sizeof(Node));
   newNode->v = v;
@@ -50,8 +44,7 @@ Node *allocNode(int v)
   return newNode;
 }
 
-Node *L_Rotate(Node *n)
-{
+Node *L_Rotate(Node *n) {
   Node *tmp = n->r;
   Node *tmp2 = tmp->l;
 
@@ -64,8 +57,7 @@ Node *L_Rotate(Node *n)
   return tmp;
 }
 
-Node *R_Rotate(Node *n)
-{
+Node *R_Rotate(Node *n) {
   Node *tmp = n->l;
   Node *tmp2 = tmp->r;
 
@@ -78,8 +70,7 @@ Node *R_Rotate(Node *n)
   return tmp;
 }
 
-Node *insert(Node *n, int v)
-{
+Node *insert(Node *n, int v) {
   if (n == NULL)
     return allocNode(v);
 
@@ -98,13 +89,11 @@ Node *insert(Node *n, int v)
   if (balance < -1 && v > n->r->v)
     return L_Rotate(n);
 
-  if (balance > 1 && v > n->l->v)
-  {
+  if (balance > 1 && v > n->l->v) {
     n->l = L_Rotate(n->l);
     return R_Rotate(n);
   }
-  if (balance < -1 && v < n->r->v)
-  {
+  if (balance < -1 && v < n->r->v) {
     n->r = R_Rotate(n->r);
     return L_Rotate(n);
   }
@@ -112,8 +101,7 @@ Node *insert(Node *n, int v)
   return n;
 }
 
-void preOrderPrint(Node *n)
-{
+void preOrderPrint(Node *n) {
   if (n == NULL)
     return;
   cout << n->v << " ";
@@ -122,8 +110,7 @@ void preOrderPrint(Node *n)
   return;
 }
 
-int main()
-{
+int main() {
   AVL *avl = NULL;
   start_avl(&avl);
   avl->root = insert(avl->root, 10);

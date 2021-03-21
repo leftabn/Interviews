@@ -2,45 +2,24 @@
 
 using namespace std;
 
-class Node
-{
+class Node {
 public:
-  Node()
-  {
+  Node() {
     value = 0;
     next = NULL;
     nextMin = NULL;
   }
-  Node(int v)
-  {
+  Node(int v) {
     value = v;
     next = NULL;
     nextMin = NULL;
   }
-  Node *getNext()
-  {
-    return next;
-  }
-  Node *getNextMin()
-  {
-    return nextMin;
-  }
-  int getValue()
-  {
-    return value;
-  }
-  void setValue(int v)
-  {
-    value = v;
-  }
-  void setNext(Node *n)
-  {
-    next = n;
-  }
-  void setNextMin(Node *n)
-  {
-    nextMin = n;
-  }
+  Node *getNext() { return next; }
+  Node *getNextMin() { return nextMin; }
+  int getValue() { return value; }
+  void setValue(int v) { value = v; }
+  void setNext(Node *n) { next = n; }
+  void setNextMin(Node *n) { nextMin = n; }
 
 private:
   int value;
@@ -48,96 +27,67 @@ private:
   Node *nextMin;
 };
 
-class Stack
-{
+class Stack {
 public:
-  Stack()
-  {
+  Stack() {
     top = NULL;
     min = top;
   }
-  int getTop()
-  {
-    return (top->getValue());
-  }
-  int getMin()
-  {
-    return (min->getValue());
-  }
-  void push(Node *n)
-  {
-    if (top == NULL)
-    {
+  int getTop() { return (top->getValue()); }
+  int getMin() { return (min->getValue()); }
+  void push(Node *n) {
+    if (top == NULL) {
       top = n;
       min = top;
-    }
-    else
-    {
+    } else {
       n->setNext(top);
       top = n;
-      if (n->getValue() < min->getValue())
-      {
+      if (n->getValue() < min->getValue()) {
         n->setNextMin(min);
         min = n;
       }
     }
   }
-  void push(int v)
-  {
-    if (top == NULL)
-    {
+  void push(int v) {
+    if (top == NULL) {
       top = new Node(v);
       min = top;
-    }
-    else
-    {
+    } else {
       Node *tmp = new Node(v);
       tmp->setNext(top);
       top = tmp;
-      if (v < min->getValue())
-      {
+      if (v < min->getValue()) {
         tmp->setNextMin(min);
         min = tmp;
       }
     }
   }
-  Node *pop()
-  {
+  Node *pop() {
     Node *tmp = top;
     top = top->getNext();
-    if (min == tmp)
-    {
+    if (min == tmp) {
       min = min->getNext();
     }
     return (tmp);
   }
-  void fill(int *arr, int n)
-  {
+  void fill(int *arr, int n) {
     int i;
-    for (i = 0; i < n; i++)
-    {
+    for (i = 0; i < n; i++) {
       push(new Node(arr[i]));
     }
   }
-  bool isEmpty()
-  {
-    return (top == NULL);
-  }
-  void clear()
-  {
-    while (top != NULL)
-    {
+  bool isEmpty() { return (top == NULL); }
+  void clear() {
+    while (top != NULL) {
       Node *tmp = top;
       pop();
       delete tmp;
     }
   }
-  void printStack()
-  {
+  void printStack() {
     Node *it = top;
     cout << "[";
-    while (it != NULL)
-    {
+    while (it != NULL) {
       cout << it->getValue();
       if (it->getNext())
         cout << ", ";
@@ -151,26 +101,17 @@ private:
   Node *min;
 };
 
-void sortStacks(Stack &in, Stack &aux)
-{
-  while (!in.isEmpty())
-  {
+void sortStacks(Stack &in, Stack &aux) {
+  while (!in.isEmpty()) {
     int tmp = in.getTop();
     in.pop();
-    if (aux.isEmpty())
-    {
+    if (aux.isEmpty()) {
       aux.push(tmp);
-    }
-    else
-    {
-      if (tmp > aux.getTop())
-      {
+    } else {
+      if (tmp > aux.getTop()) {
         aux.push(tmp);
-      }
-      else
-      {
-        while (!aux.isEmpty() && aux.getTop() > tmp)
-        {
+      } else {
+        while (!aux.isEmpty() && aux.getTop() > tmp) {
           in.push(aux.getTop());
           aux.pop();
         }
@@ -178,16 +119,14 @@ void sortStacks(Stack &in, Stack &aux)
       }
     }
   }
-  while (!aux.isEmpty())
-  {
+  while (!aux.isEmpty()) {
     in.push(aux.getTop());
     aux.pop();
   }
   return;
 }
 
-int main()
-{
+int main() {
   Stack s1 = Stack();
   int arr[] = {6, 3, 1, 10, 4};
   s1.fill(arr, 5);
