@@ -36,12 +36,11 @@ class Emitter {
   }
 };
 
-
 const emitter = new Emitter();
 
 const test = function (a, b) {
   console.log(a, b);
-}
+};
 
 const sub = emitter.subscribe("event_name", test);
 
