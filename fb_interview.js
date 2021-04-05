@@ -1,11 +1,11 @@
 class Emitter {
 
   constructor() {
-    this.eventsHandler = [];
+    this.eventsHandler = new Map();
   }
 
   subscribe(event, callback) {
-    let subscription = this.eventsHandler.filter(item => item.eventName === event)[0];
+    let subscription = this.eventsHandler[event];
     if (subscription) {
       subscription.callbacks.push(callback);
     }
@@ -20,18 +20,14 @@ class Emitter {
         }
       }
       subscription.callbacks.push(callback);
-      this.eventsHandler.push(subscription);
+      this.eventsHandler[event] = subscription;
     }
     return subscription;
   }
 
   emit(event, first_value, second_value) {
-    for (let e of this.eventsHandler) {
-      if (e.eventName === event) {
-        for (let i = 0; i < e.callbacks.length; i++) {
-          e.callbacks[i](first_value, second_value);
-        }
-      }
+    for (let i = 0; i < this.eventsHandler[event].callbacks.length; i++) {
+      this.eventsHandler[event].callbacks[i](first_value, second_value);
     }
   }
 };
