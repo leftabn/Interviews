@@ -13,7 +13,7 @@ class Emitter {
       subscription = {
         eventName: event,
         callbacks: [],
-        release: function () {
+        release: function() {
           while (this.callbacks.length) {
             this.callbacks.pop();
           }
