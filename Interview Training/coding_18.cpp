@@ -1,15 +1,15 @@
 /**
- * Check Balanced: Implement a function to check if a binary tree is balanced. For the purposes of
- * this question, a balanced tree is defined to be a tree such that the heights of the two subtrees of any
- * node never differ by more than one.
-*/
+ * Check Balanced: Implement a function to check if a binary tree is balanced.
+ * For the purposes of this question, a balanced tree is defined to be a tree
+ * such that the heights of the two subtrees of any node never differ by more
+ * than one.
+ */
 
 #include <iostream>
 
 using namespace std;
 
 int _max(int a, int b) { return a > b ? a : b; }
-
 
 class BTNode {
 public:
@@ -50,8 +50,7 @@ public:
       while (aux->getLeft() != NULL && aux->getRight() != NULL) {
         if (aux->getRight()) {
           aux = aux->getLeft();
-        }
-        else {
+        } else {
           aux = aux->getRight();
         }
       }
@@ -59,12 +58,10 @@ public:
       newNode->setDepth(aux->getDepth() + 1);
       if (aux->getLeft() == NULL) {
         aux->setLeft(newNode);
-      }
-      else {
+      } else {
         aux->setRight(newNode);
       }
-    }
-    else {
+    } else {
       root = new BTNode(v);
       root->setDepth(1);
     }
@@ -94,11 +91,11 @@ int checkBalance(BinaryTree &bt) {
   if (abs(leftHeight - rightHeight) <= 1) {
     return 1;
   }
-  
+
   return 0;
 }
 
-int main() { 
+int main() {
   BinaryTree bt = BinaryTree();
   bt.insert(5);
   bt.insert(2);
@@ -107,5 +104,5 @@ int main() {
   bt.insert(11);
   bt.getRoot()->getLeft()->getLeft()->setRight(new BTNode(80));
   cout << checkBalance(bt) << "\n";
-  return 0; 
+  return 0;
 }

@@ -1,7 +1,8 @@
 /**
- * Given a binary tree, design an algorithm which creates a linked list of all the nodes 
- * at each depth (e.g., if you have a tree with depth D, you'll have D linked lists). 
-*/
+ * Given a binary tree, design an algorithm which creates a linked list of all
+ * the nodes at each depth (e.g., if you have a tree with depth D, you'll have D
+ * linked lists).
+ */
 
 #include <iostream>
 #include <map>
@@ -116,8 +117,7 @@ public:
       while (aux->getLeft() != NULL && aux->getRight() != NULL) {
         if (aux->getRight()) {
           aux = aux->getLeft();
-        }
-        else {
+        } else {
           aux = aux->getRight();
         }
       }
@@ -125,12 +125,10 @@ public:
       newNode->setDepth(aux->getDepth() + 1);
       if (aux->getLeft() == NULL) {
         aux->setLeft(newNode);
-      }
-      else {
+      } else {
         aux->setRight(newNode);
       }
-    }
-    else {
+    } else {
       root = new BTNode(v);
       root->setDepth(1);
     }

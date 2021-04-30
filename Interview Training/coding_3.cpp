@@ -28,7 +28,7 @@ int solver(int *arr, int n) {
 
 int main() {
   int arr[] = {1, 5, 28, 30, 1, 14, 28, 2, 7, 5};
-  int len = (sizeof(arr)/sizeof(*arr)); // (sizeof(arr)/sizeof(arr[0]))
+  int len = (sizeof(arr) / sizeof(*arr)); // (sizeof(arr)/sizeof(arr[0]))
   cout << solver(arr, len) << "\n";
   return 0;
 }

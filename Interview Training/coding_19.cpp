@@ -1,6 +1,7 @@
 /**
- *  Validate BST: Implement a function to check if a binary tree is a binary search tree. 
-*/
+ *  Validate BST: Implement a function to check if a binary tree is a binary
+ * search tree.
+ */
 
 #include <iostream>
 #include <limits.h>
@@ -46,8 +47,7 @@ public:
       while (aux->getLeft() != NULL && aux->getRight() != NULL) {
         if (aux->getRight()) {
           aux = aux->getLeft();
-        }
-        else {
+        } else {
           aux = aux->getRight();
         }
       }
@@ -55,12 +55,10 @@ public:
       newNode->setDepth(aux->getDepth() + 1);
       if (aux->getLeft() == NULL) {
         aux->setLeft(newNode);
-      }
-      else {
+      } else {
         aux->setRight(newNode);
       }
-    }
-    else {
+    } else {
       root = new BTNode(v);
       root->setDepth(1);
     }
@@ -71,19 +69,19 @@ private:
   BTNode *root;
 };
 
-bool checkBSearch(BTNode* n, int last) {
+bool checkBSearch(BTNode *n, int last) {
   if (n) {
     if (!checkBSearch(n->getLeft(), last))
-        return false;
+      return false;
     if (n->getValue() <= last)
-        return false;
+      return false;
     last = n->getValue();
     return checkBSearch(n->getRight(), last);
   }
   return true;
 }
 
-int main() { 
+int main() {
   BinaryTree bt = BinaryTree();
   bt.insert(5);
   bt.insert(2);
