@@ -25,11 +25,13 @@ class Emitter {
 
   emit(event, first_value, second_value) {
     const events = this.eventsHandler[event];
-    for (let i = 0; i < events.callbacks.length; i++) {
-      events.callbacks[i](first_value, second_value);
+    if (events) {
+      for (let i = 0; i < events.callbacks.length; i++) {
+        events.callbacks[i](first_value, second_value);
+      }
     }
   }
-};
+}
 
 const emitter = new Emitter();
 
@@ -39,6 +41,6 @@ const test = function (a, b) {
 
 const sub = emitter.subscribe("event_name", test);
 
-emitter.emit("event_name", "first_value", "second_value");
+emitter.emit("event_name1", "first_value", "second_value");
 
 sub.release();
