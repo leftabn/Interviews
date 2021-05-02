@@ -7,10 +7,10 @@ using namespace std;
 
 lli solver(lli n, map<lli, lli> &mem) {
   lli ans;
-  if (n <= 2)
-    ans = mem[n];
-  else if (n < 0)
+  if (n < 0)
     ans = 0;
+  else if (n <= 2)
+    ans = mem[n];
   else if (mem[n])
     ans = mem[n];
   else {
