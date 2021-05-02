@@ -11,23 +11,22 @@ class Emitter {
     }
     else {
       subscription = {
-        eventName: event,
-        callbacks: [],
+        callbacks: [callback],
         release: function() {
           while (this.callbacks.length) {
             this.callbacks.pop();
           }
         }
       }
-      subscription.callbacks.push(callback);
       this.eventsHandler[event] = subscription;
     }
     return subscription;
   }
 
   emit(event, first_value, second_value) {
-    for (let i = 0; i < this.eventsHandler[event].callbacks.length; i++) {
-      this.eventsHandler[event].callbacks[i](first_value, second_value);
+    const events = this.eventsHandler[event];
+    for (let i = 0; i < events.callbacks.length; i++) {
+      events.callbacks[i](first_value, second_value);
     }
   }
 };
