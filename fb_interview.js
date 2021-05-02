@@ -41,6 +41,6 @@ const test = function (a, b) {
 
 const sub = emitter.subscribe("event_name", test);
 
-emitter.emit("event_name1", "first_value", "second_value");
+emitter.emit("event_name", "first_value", "second_value");
 
 sub.release();
