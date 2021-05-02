@@ -10,8 +10,8 @@ using namespace std;
 int sol(string s1) {
   if (s1.length() > 96)
     return 0;
-  int markLetters[256] = {0};
-  for (char &i : s1) {
+  int markLetters[256] = { 0 };
+  for (char& i : s1) {
     if (!markLetters[i])
       markLetters[i] = 1;
     else

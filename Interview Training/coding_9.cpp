@@ -9,9 +9,9 @@
 
 using namespace std;
 
-int checkOdd(string s1, int *lettersMap) {
+int checkOdd(string s1, int* lettersMap) {
   int oneOdd = 0;
-  for (char &i : s1) {
+  for (char& i : s1) {
     if (lettersMap[i - 'a'] & 1) {
       if (oneOdd)
         return 0;
@@ -22,9 +22,9 @@ int checkOdd(string s1, int *lettersMap) {
 }
 
 int sol(string s1) {
-  int lettersCountArr[27] = {0};
+  int lettersCountArr[27] = { 0 };
   int i;
-  for (char &i : s1) {
+  for (char& i : s1) {
     if (!isspace(i))
       lettersCountArr[i - 'a']++;
   }

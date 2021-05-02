@@ -8,35 +8,35 @@ using namespace std;
 
 typedef struct btNode {
   int v;
-  struct btNode *r;
-  struct btNode *l;
+  struct btNode* r;
+  struct btNode* l;
   int height;
 } Node;
 
 typedef struct AVL {
-  Node *root;
+  Node* root;
 } AVL;
 
-void start_avl(AVL **avl) {
-  *avl = (AVL *)malloc(sizeof(AVL));
+void start_avl(AVL** avl) {
+  *avl = (AVL*)malloc(sizeof(AVL));
   (*avl)->root = NULL;
 }
 
-int getHeight(Node *n) {
+int getHeight(Node* n) {
   if (n == NULL)
     return 0;
   return n->height;
 }
 
-int balanceFactor(Node *n) {
+int balanceFactor(Node* n) {
   if (n == NULL)
     return 0;
   return (getHeight(n->l) - getHeight(n->r));
 }
 
-Node *allocNode(int v) {
-  Node *newNode = NULL;
-  newNode = (Node *)malloc(sizeof(Node));
+Node* allocNode(int v) {
+  Node* newNode = NULL;
+  newNode = (Node*)malloc(sizeof(Node));
   newNode->v = v;
   newNode->r = NULL;
   newNode->l = NULL;
@@ -44,9 +44,9 @@ Node *allocNode(int v) {
   return newNode;
 }
 
-Node *L_Rotate(Node *n) {
-  Node *tmp = n->r;
-  Node *tmp2 = tmp->l;
+Node* L_Rotate(Node* n) {
+  Node* tmp = n->r;
+  Node* tmp2 = tmp->l;
 
   tmp->l = n;
   n->r = tmp2;
@@ -57,9 +57,9 @@ Node *L_Rotate(Node *n) {
   return tmp;
 }
 
-Node *R_Rotate(Node *n) {
-  Node *tmp = n->l;
-  Node *tmp2 = tmp->r;
+Node* R_Rotate(Node* n) {
+  Node* tmp = n->l;
+  Node* tmp2 = tmp->r;
 
   tmp->r = n;
   n->l = tmp2;
@@ -70,7 +70,7 @@ Node *R_Rotate(Node *n) {
   return tmp;
 }
 
-Node *insert(Node *n, int v) {
+Node* insert(Node* n, int v) {
   if (n == NULL)
     return allocNode(v);
 
@@ -101,7 +101,7 @@ Node *insert(Node *n, int v) {
   return n;
 }
 
-void preOrderPrint(Node *n) {
+void preOrderPrint(Node* n) {
   if (n == NULL)
     return;
   cout << n->v << " ";
@@ -111,7 +111,7 @@ void preOrderPrint(Node *n) {
 }
 
 int main() {
-  AVL *avl = NULL;
+  AVL* avl = NULL;
   start_avl(&avl);
   avl->root = insert(avl->root, 10);
   avl->root = insert(avl->root, 20);

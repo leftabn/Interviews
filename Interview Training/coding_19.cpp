@@ -22,20 +22,20 @@ public:
     right = NULL;
     left = NULL;
   }
-  BTNode *getRight() { return right; }
-  BTNode *getLeft() { return left; }
+  BTNode* getRight() { return right; }
+  BTNode* getLeft() { return left; }
   int getValue() { return value; }
   int getDepth() { return depth; }
   void setValue(int v) { value = v; }
-  void setRight(BTNode *n) { right = n; }
-  void setLeft(BTNode *n) { left = n; }
+  void setRight(BTNode* n) { right = n; }
+  void setLeft(BTNode* n) { left = n; }
   void setDepth(int v) { depth = v; }
 
 private:
   int value;
   int depth;
-  BTNode *right;
-  BTNode *left;
+  BTNode* right;
+  BTNode* left;
 };
 
 class BinaryTree {
@@ -43,33 +43,36 @@ public:
   BinaryTree() { root = NULL; };
   void insert(int v) {
     if (root != NULL) {
-      BTNode *aux = root;
+      BTNode* aux = root;
       while (aux->getLeft() != NULL && aux->getRight() != NULL) {
         if (aux->getRight()) {
           aux = aux->getLeft();
-        } else {
+        }
+        else {
           aux = aux->getRight();
         }
       }
-      BTNode *newNode = new BTNode(v);
+      BTNode* newNode = new BTNode(v);
       newNode->setDepth(aux->getDepth() + 1);
       if (aux->getLeft() == NULL) {
         aux->setLeft(newNode);
-      } else {
+      }
+      else {
         aux->setRight(newNode);
       }
-    } else {
+    }
+    else {
       root = new BTNode(v);
       root->setDepth(1);
     }
   }
-  BTNode *getRoot() { return root; }
+  BTNode* getRoot() { return root; }
 
 private:
-  BTNode *root;
+  BTNode* root;
 };
 
-bool checkBSearch(BTNode *n, int last) {
+bool checkBSearch(BTNode* n, int last) {
   if (n) {
     if (!checkBSearch(n->getLeft(), last))
       return false;

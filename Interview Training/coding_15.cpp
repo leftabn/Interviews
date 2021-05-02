@@ -20,17 +20,17 @@ public:
     next = NULL;
     nextMin = NULL;
   }
-  Node *getNext() { return next; }
-  Node *getNextMin() { return nextMin; }
+  Node* getNext() { return next; }
+  Node* getNextMin() { return nextMin; }
   int getValue() { return value; }
   void setValue(int v) { value = v; }
-  void setNext(Node *n) { next = n; }
-  void setNextMin(Node *n) { nextMin = n; }
+  void setNext(Node* n) { next = n; }
+  void setNextMin(Node* n) { nextMin = n; }
 
 private:
   int value;
-  Node *next;
-  Node *nextMin;
+  Node* next;
+  Node* nextMin;
 };
 
 class Stack {
@@ -41,11 +41,12 @@ public:
   }
   int getTop() { return (top->getValue()); }
   int getMin() { return (min->getValue()); }
-  void push(Node *n) {
+  void push(Node* n) {
     if (top == NULL) {
       top = n;
       min = top;
-    } else {
+    }
+    else {
       n->setNext(top);
       top = n;
       if (n->getValue() < min->getValue()) {
@@ -58,8 +59,9 @@ public:
     if (top == NULL) {
       top = new Node(v);
       min = top;
-    } else {
-      Node *tmp = new Node(v);
+    }
+    else {
+      Node* tmp = new Node(v);
       tmp->setNext(top);
       top = tmp;
       if (v < min->getValue()) {
@@ -68,15 +70,15 @@ public:
       }
     }
   }
-  Node *pop() {
-    Node *tmp = top;
+  Node* pop() {
+    Node* tmp = top;
     top = top->getNext();
     if (min == tmp) {
       min = min->getNext();
     }
     return (tmp);
   }
-  void fill(int *arr, int n) {
+  void fill(int* arr, int n) {
     int i;
     for (i = 0; i < n; i++) {
       push(new Node(arr[i]));
@@ -85,13 +87,13 @@ public:
   bool isEmpty() { return (top == NULL); }
   void clear() {
     while (top != NULL) {
-      Node *tmp = top;
+      Node* tmp = top;
       top = pop();
       delete tmp;
     }
   }
   void printStack() {
-    Node *it = top;
+    Node* it = top;
     cout << "[";
     while (it != NULL) {
       cout << it->getValue();
@@ -103,8 +105,8 @@ public:
   }
 
 private:
-  Node *top;
-  Node *min;
+  Node* top;
+  Node* min;
 };
 
 int main() {
