@@ -17,14 +17,14 @@ public:
     value = v;
     next = NULL;
   }
-  Node *getNext() { return next; }
+  Node* getNext() { return next; }
   int getValue() { return value; }
   void setValue(int v) { value = v; }
-  void setNext(Node *n) { next = n; }
+  void setNext(Node* n) { next = n; }
 
 private:
   int value;
-  Node *next;
+  Node* next;
 };
 
 class LinkedList {
@@ -33,19 +33,20 @@ public:
     head = NULL;
     lastElement = head;
   }
-  Node *getHead() { return head; }
-  Node *getLast() { return lastElement; }
-  void setHead(Node *h) { head = h; }
-  void insert(Node *n) {
+  Node* getHead() { return head; }
+  Node* getLast() { return lastElement; }
+  void setHead(Node* h) { head = h; }
+  void insert(Node* n) {
     if (head == NULL) {
       head = n;
       lastElement = head;
-    } else {
+    }
+    else {
       lastElement->setNext(n);
       lastElement = lastElement->getNext();
     }
   }
-  void fill(int *arr, int n) {
+  void fill(int* arr, int n) {
     int i;
     for (i = 0; i < n; i++) {
       insert(new Node(arr[i]));
@@ -53,14 +54,14 @@ public:
   }
   void clear() {
     while (head != NULL) {
-      Node *tmp = head;
+      Node* tmp = head;
       head = head->getNext();
       delete tmp;
     }
   }
   bool isEmpty() { return (head == NULL); }
   void printList() {
-    Node *it = head;
+    Node* it = head;
     cout << "[";
     while (it != NULL) {
       cout << it->getValue();
@@ -72,13 +73,13 @@ public:
   }
 
 private:
-  Node *head;
-  Node *lastElement;
+  Node* head;
+  Node* lastElement;
 };
 
-int len(LinkedList &list) {
+int len(LinkedList& list) {
   int _len = 0;
-  Node *aux = list.getHead();
+  Node* aux = list.getHead();
   while (aux != NULL) {
     _len++;
     aux = aux->getNext();
@@ -86,8 +87,8 @@ int len(LinkedList &list) {
   return _len;
 }
 
-int sol(LinkedList &list, int kth) {
-  Node *aux = list.getHead();
+int sol(LinkedList& list, int kth) {
+  Node* aux = list.getHead();
   int _len = len(list);
   int i;
   for (i = 0; i < (_len - kth); i++)
@@ -96,7 +97,7 @@ int sol(LinkedList &list, int kth) {
 }
 
 int main() {
-  int arr[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  int arr[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
   LinkedList list = LinkedList();
   list.fill(arr, 10);
   list.printList();

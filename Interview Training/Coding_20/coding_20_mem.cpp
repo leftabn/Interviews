@@ -6,14 +6,18 @@
 using namespace std;
 
 lli solver(lli n, map<lli, lli> &mem) {
-  if (n <= 2)
-    return mem[n];
-  else if (n < 0)
-    return 0;
+  lli ans;
+  if (n < 0)
+    ans = 0;
+  else if (n <= 2)
+    ans = mem[n];
   else if (mem[n])
-    return mem[n];
-  mem[n] = solver(n - 1, mem) + solver(n - 2, mem) + solver(n - 3, mem);
-  return mem[n];
+    ans = mem[n];
+  else {
+    mem[n] = solver(n - 1, mem) + solver(n - 2, mem) + solver(n - 3, mem);
+    ans = mem[n];
+  }
+  return ans;
 }
 
 int main() {

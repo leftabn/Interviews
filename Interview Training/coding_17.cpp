@@ -19,14 +19,14 @@ public:
     value = v;
     next = NULL;
   }
-  LLNode *getNext() { return next; }
+  LLNode* getNext() { return next; }
   int getValue() { return value; }
   void setValue(int v) { value = v; }
-  void setNext(LLNode *n) { next = n; }
+  void setNext(LLNode* n) { next = n; }
 
 private:
   int value;
-  LLNode *next;
+  LLNode* next;
 };
 
 class LinkedList {
@@ -35,19 +35,20 @@ public:
     head = NULL;
     lastElement = head;
   }
-  LLNode *getHead() { return head; }
-  LLNode *getLast() { return lastElement; }
-  void setHead(LLNode *h) { head = h; }
-  void insert(LLNode *n) {
+  LLNode* getHead() { return head; }
+  LLNode* getLast() { return lastElement; }
+  void setHead(LLNode* h) { head = h; }
+  void insert(LLNode* n) {
     if (head == NULL) {
       head = n;
       lastElement = head;
-    } else {
+    }
+    else {
       lastElement->setNext(n);
       lastElement = lastElement->getNext();
     }
   }
-  void fill(int *arr, int n) {
+  void fill(int* arr, int n) {
     int i;
     for (i = 0; i < n; i++) {
       insert(new LLNode(arr[i]));
@@ -55,14 +56,14 @@ public:
   }
   void clear() {
     while (head != NULL) {
-      LLNode *tmp = head;
+      LLNode* tmp = head;
       head = head->getNext();
       delete tmp;
     }
   }
   bool isEmpty() { return (head == NULL); }
   void printList() {
-    LLNode *it = head;
+    LLNode* it = head;
     cout << "[";
     while (it != NULL) {
       cout << it->getValue();
@@ -74,8 +75,8 @@ public:
   }
 
 private:
-  LLNode *head;
-  LLNode *lastElement;
+  LLNode* head;
+  LLNode* lastElement;
 };
 
 class BTNode {
@@ -92,20 +93,20 @@ public:
     right = NULL;
     left = NULL;
   }
-  BTNode *getRight() { return right; }
-  BTNode *getLeft() { return left; }
+  BTNode* getRight() { return right; }
+  BTNode* getLeft() { return left; }
   int getValue() { return value; }
   int getDepth() { return depth; }
   void setValue(int v) { value = v; }
-  void setRight(BTNode *n) { right = n; }
-  void setLeft(BTNode *n) { left = n; }
+  void setRight(BTNode* n) { right = n; }
+  void setLeft(BTNode* n) { left = n; }
   void setDepth(int v) { depth = v; }
 
 private:
   int value;
   int depth;
-  BTNode *right;
-  BTNode *left;
+  BTNode* right;
+  BTNode* left;
 };
 
 class BinaryTree {
@@ -113,35 +114,38 @@ public:
   BinaryTree() { root = NULL; };
   void insert(int v) {
     if (root != NULL) {
-      BTNode *aux = root;
+      BTNode* aux = root;
       while (aux->getLeft() != NULL && aux->getRight() != NULL) {
         if (aux->getRight()) {
           aux = aux->getLeft();
-        } else {
+        }
+        else {
           aux = aux->getRight();
         }
       }
-      BTNode *newNode = new BTNode(v);
+      BTNode* newNode = new BTNode(v);
       newNode->setDepth(aux->getDepth() + 1);
       if (aux->getLeft() == NULL) {
         aux->setLeft(newNode);
-      } else {
+      }
+      else {
         aux->setRight(newNode);
       }
-    } else {
+    }
+    else {
       root = new BTNode(v);
       root->setDepth(1);
     }
   }
-  BTNode *getRoot() { return root; }
+  BTNode* getRoot() { return root; }
 
 private:
-  BTNode *root;
+  BTNode* root;
 };
 
 map<int, LinkedList> ans;
 
-void walkTree(BTNode *node) {
+void walkTree(BTNode* node) {
   if (node != NULL) {
     ans[node->getDepth()].insert(new LLNode(node->getValue()));
     if (node->getLeft() != NULL) {

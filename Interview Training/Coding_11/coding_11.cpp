@@ -18,8 +18,7 @@ string sol(string s1, int stringlen) {
       s1[i--] = '2';
       s1[i--] = '%';
       stringlen--;
-    }
-    else
+    } else
       s1[i] = s1[stringlen--];
   }
   return s1;
