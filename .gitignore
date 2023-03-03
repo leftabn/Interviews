@@ -1,3 +1,5 @@
 .history/
 .vscode/
 *.json
+.idea/
+*/out/
