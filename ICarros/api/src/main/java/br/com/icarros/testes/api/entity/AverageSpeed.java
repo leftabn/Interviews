@@ -1,4 +1,4 @@
-package br.com.icarros.testes.api;
-
-public record AverageSpeed(String units, String speed) {
-}
+//package br.com.icarros.testes.api.entity;
+//
+//public record AverageSpeed(String units, String speed) {
+//}
