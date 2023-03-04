@@ -1,4 +1,8 @@
-//package br.com.icarros.testes.api.entity;
-//
-//public record AverageSpeed(String units, String speed) {
-//}
+package br.com.icarros.testes.api.entity;
+
+import java.io.Serializable;
+
+public record AverageSpeed(
+        String units,
+        float speed
+) implements Serializable {}

@@ -1,6 +1,6 @@
 package br.com.icarros.testes.api.service;
 
-import br.com.icarros.testes.api.entity.Result;
+import br.com.icarros.testes.api.entity.Circuit;
 import br.com.icarros.testes.api.utils.ConstantsUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,26 +11,27 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ResultService {
+public class CircuitService {
+
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
     @Autowired
     private JsonService jsonService;
-    @Cacheable(cacheNames = "Result", key="#index")
-    public Result getFinalResultInfo(int index) throws JsonProcessingException {
+    @Cacheable(cacheNames = "Circuit", key="#root.method.name")
+    public Circuit getCircuitInfos() throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
-        String finalResultInfo = buildFinalResultInfoString(index);
-        Result result = objectMapper.readValue(finalResultInfo, Result.class);
-        this.logger.info("[getFinalResultInfo] - getFinalResultInfo request");
-        return result;
+        String circuitInfos = buildCircuitInfosString();
+        Circuit circuit = objectMapper.readValue(circuitInfos, Circuit.class);
+        this.logger.info("[getCircuitInfos] - getCircuitInfos request");
+        return circuit;
     }
 
-    private String buildFinalResultInfoString(int index) {
+    private String buildCircuitInfosString() {
         return this.jsonService.getAllResults()
                 .get(ConstantsUtil.MR_DATA).getAsJsonObject()
                 .get(ConstantsUtil.RACE_TABLE).getAsJsonObject()
                 .get(ConstantsUtil.RACES).getAsJsonArray()
                 .get(ConstantsUtil.INDEX_ZERO).getAsJsonObject()
-                .get("Results").getAsJsonArray()
-                .get(index).toString();
+                .get("Circuit").getAsJsonObject()
+                .toString();
     }
 }
