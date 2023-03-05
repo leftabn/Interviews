@@ -12,6 +12,4 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface ErgastClient {
     @GetMapping("/f1/2017/last/results.json")
     JsonObject getAllResults();
-    @GetMapping("/f1/{year}/last/results.json")
-    JsonObject getAllResultsByYear(@PathVariable String year);
 }
