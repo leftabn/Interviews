@@ -20,12 +20,7 @@ public class AngryMarvinBirds {
     }
 
     static int countMarvinStars(List<String> marvinResults) {
-        AtomicInteger count = new AtomicInteger(0);
-        marvinResults.forEach((e) -> {
-            Pattern starRegex = Pattern.compile("\\*");
-            count.addAndGet((int) starRegex.matcher(e).results().count());
-        });
-        return count.get();
+        return marvinResults.stream().flatMapToInt(s -> s.chars().map(c -> c == '*' ? 1: 0)).sum();
     }
     public static void main(String[] args) {
         List<String> combinations = generateCombinations();
