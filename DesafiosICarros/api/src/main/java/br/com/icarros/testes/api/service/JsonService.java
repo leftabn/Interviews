@@ -10,8 +10,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class JsonService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
-    @Autowired
-    private ErgastClient client;
+    private final ErgastClient client;
+
+    public JsonService(ErgastClient client) {
+        this.client = client;
+    }
     public JsonObject getAllResults() {
         this.logger.info("[getAllResults] - getAllResults request");
         return client.getAllResults();

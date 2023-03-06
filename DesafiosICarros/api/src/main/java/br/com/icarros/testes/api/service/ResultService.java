@@ -13,8 +13,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class ResultService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
-    @Autowired
-    private JsonService jsonService;
+    private final JsonService jsonService;
+
+    public ResultService(JsonService jsonService) {
+        this.jsonService = jsonService;
+    }
+
     @Cacheable(cacheNames = "Result", key="#index")
     public Result getFinalResultInfo(int index) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();

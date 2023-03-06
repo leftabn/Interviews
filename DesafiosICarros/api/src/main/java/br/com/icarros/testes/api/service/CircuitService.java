@@ -14,8 +14,12 @@ import org.springframework.stereotype.Service;
 public class CircuitService {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass().getName());
-    @Autowired
-    private JsonService jsonService;
+    private final JsonService jsonService;
+
+    public CircuitService(JsonService jsonService) {
+        this.jsonService = jsonService;
+    }
+
     @Cacheable(cacheNames = "Circuit", key="#root.method.name")
     public Circuit getCircuitInfos() throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
