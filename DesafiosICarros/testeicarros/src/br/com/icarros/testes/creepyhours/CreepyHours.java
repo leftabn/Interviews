@@ -14,8 +14,8 @@ public class CreepyHours {
         }
         return beepCount;
     }
+
     public static void main(String[] args) {
-        // AA:BB == 11:00, AB:AB == 13:13, AA:AA == 00:00, AB:BA == 20:02
         String[] hours = {"11:00","13:13","00:00","20:02","00:02","10:00"};
         System.out.println(countCreepyHours(hours));
     }

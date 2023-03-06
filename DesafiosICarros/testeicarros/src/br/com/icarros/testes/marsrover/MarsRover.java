@@ -10,13 +10,17 @@ public class MarsRover {
         put("S", 2);
         put("W", 3);
     }};
+
     static char[] headingsArr = {'N','E','S','W'};
+
     static boolean checkMax(int maxNumber, int number) {
         return number < maxNumber;
     }
+
     static boolean checkMin(int number) {
         return number > 0;
     }
+
     static void solver(int maxX, int maxY, int x, int y, String startHeading, String commands) {
         int actualHeading = headingsMap.get(startHeading);
         for (int i = 0; i < commands.length(); i++) {
@@ -47,6 +51,7 @@ public class MarsRover {
                 }
             }
         }
+
         System.out.println(x
                 + " "
                 + y
@@ -54,6 +59,7 @@ public class MarsRover {
                 + headingsArr[Math.abs(actualHeading % headingsArr.length)]
         );
     }
+    
     public static void main(String[] args) {
         solver(5,5,1,2, "N", "LMLMLMLMM");
         solver(5,5,3,3, "E", "MMRMMRMRRM");
